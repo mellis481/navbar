@@ -16,7 +16,7 @@ export default class Root extends React.Component {
     } else {
       return (
         <>
-          <a class="navbar-brand" href="/">
+          <Link className="navbar-brand" to="/">
             <img
               src="https://single-spa.js.org/img/logo-white-bgblue.svg"
               className="d-inline-block align-top"
@@ -25,7 +25,7 @@ export default class Root extends React.Component {
               alt=""
             />
             Microfrontends Demo
-          </a>
+          </Link>
           <div class="collapse navbar-collapse">
             <ul className="navbar-nav">
               <li className="nav-item">
