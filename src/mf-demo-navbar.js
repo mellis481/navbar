@@ -16,21 +16,16 @@ export const mount = lifecycles.mount;
 export const unmount = lifecycles.unmount;
 
 function domElementGetter() {
-  let el = document.getElementById("navbar");
+  let shouldCreateNew = false;
+  let el = document.getElementById("mf-navbar");
   if (!el) {
+    shouldCreateNew = true;
     el = document.createElement("nav");
-    el.id = "navbar";
-    el.className = "navbar navbar-dark bg-dark navbar-expand-lg";
+    el.id = "mf-navbar";
+  }
+  el.className = "navbar navbar-dark bg-dark navbar-expand-lg";
+  if (shouldCreateNew) {
     document.body.appendChild(el);
   }
   return el;
 }
-
-export const devtools = {
-  overlays: {
-    selectors: [".root.navBarHeight"],
-    options: {
-      color: "red"
-    }
-  }
-};
