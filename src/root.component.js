@@ -35,9 +35,7 @@ export default class Root extends React.Component {
               </li>
             </ul>
           </div>
-          <p className="text-white">
-            <em>{this.props.name} using React</em>
-          </p>
+          <em className="text-white">{this.props.name} using React</em>
         </>
       );
     }
