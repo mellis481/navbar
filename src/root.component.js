@@ -1,9 +1,10 @@
 import { Link } from "@reach/router";
+import { VtxButton } from "@vertexinc/vtx-ui-react-component-library";
 import React from "react";
 
 export default class Root extends React.Component {
   state = {
-    hasError: false
+    hasError: false,
   };
 
   componentDidCatch(error, info) {
@@ -35,7 +36,9 @@ export default class Root extends React.Component {
               </li>
             </ul>
           </div>
-          <em className="text-white">{this.props.name} using React</em>
+          <VtxButton type="link" onClick={() => alert("version v0.4.0")}>
+            Click Me
+          </VtxButton>
         </>
       );
     }
