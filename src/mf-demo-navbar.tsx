@@ -1,14 +1,14 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import singleSpaReact from "single-spa-react";
+import * as React from "react";
+import * as ReactDOM from "react-dom";
 import Root from "./root.component";
 import "./set-public-path";
+import singleSpaReact = require("single-spa-react");
 
 const lifecycles = singleSpaReact({
   React,
   ReactDOM,
   rootComponent: Root,
-  domElementGetter
+  domElementGetter,
 });
 
 export const bootstrap = lifecycles.bootstrap;
