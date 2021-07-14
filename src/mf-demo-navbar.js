@@ -1,29 +1,29 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import singleSpaReact from "single-spa-react";
-import root from "react-shadow";
 import Root from "./root.component";
 import "./set-public-path";
-
-const styles = require("!!to-string-loader!css-loader!./styles.css");
-
-class WrappedRoot extends React.Component {
-  render() {
-    return (
-      <root.div mode="open">
-        <div className="mf-demo-navbar">
-          <style type="text/css">{styles}</style>
-          <Root />
-        </div>
-      </root.div>
-    );
-  }
-}
 
 const lifecycles = singleSpaReact({
   React,
   ReactDOM,
-  rootComponent: WrappedRoot,
+  rootComponent: Root,
+  domElementGetter,
 });
 
 export const { bootstrap, mount, unmount } = lifecycles;
+
+function domElementGetter() {
+  let shouldCreateNew = false;
+  let el = document.getElementById("mf-navbar");
+  if (!el) {
+    shouldCreateNew = true;
+    el = document.createElement("nav");
+    el.id = "mf-navbar";
+  }
+  el.className = "navbar navbar-dark bg-dark navbar-expand-lg";
+  if (shouldCreateNew) {
+    document.body.appendChild(el);
+  }
+  return el;
+}
