@@ -1,3 +1,3 @@
 # Employees navbar app
 
-Run `npm start -- --http --port 9001`.
+Run `npm start`.
